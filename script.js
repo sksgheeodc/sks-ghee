@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Pre-filled WhatsApp message
       if (waLink) {
         const msg = encodeURIComponent(`Hi, I'd like to order SKS Desi Cow A2 Ghee — ${size} (₹${data.price})`);
-        waLink.href = `https://wa.me/919999999999?text=${msg}`;
+        waLink.href = `https://wa.me/919443241308?text=${msg}`;
       }
 
       // Fade in
