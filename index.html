@@ -15,7 +15,12 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     @media (max-width: 991px) {
-      .nav-desktop-links, .nav-center, .nav-right { display: none !important; }
+
+      .nav-desktop-links,
+      .nav-center,
+      .nav-right {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -23,46 +28,59 @@
 <body>
 
 
+  <!-- ── ANNOUNCEMENT BAR ── -->
+  <div class="announcement-strip">
+    <div class="container announcement-flex">
+      <p>Free delivery on orders above <span class="gold-text">₹499</span> ⚡ Use code <span
+          class="gold-text">PURE25</span> for 25% off your first order</p>
+      <button class="close-bar" aria-label="Close Announcement">&times;</button>
+    </div>
+  </div>
 
-  <!-- ════════════════ HEADER / NAVBAR ════════════════ -->
-  <header class="header" id="mainHeader">
-    <nav class="nav">
-      <div class="logo" id="logo">
-        <a href="#top">
-          <img src="images/logo.png" alt="SKS Ghee Logo" class="logo-img" />
-          <span class="brand-name">SKS GHEE</span>
+  <!-- ── HEADER / NAVIGATION ── -->
+  <header class="navbar-modern" id="mainHeader">
+    <div class="container nav-flex">
+      <div class="brand-modern">
+        <a href="#top" class="logo-box">
+          <div class="logo-circle"></div>
         </a>
+        <div class="brand-info">
+          <span class="brand-top">SKS</span>
+          <span class="brand-bottom">GHEE</span>
+        </div>
       </div>
 
-      <div class="nav-desktop-links">
-        <ul class="nav-center">
-          <li><a href="#products">Products</a></li>
-          <li><a href="#why-us">Our Story</a></li>
-          <li><a href="#benefits">Benefits</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <nav class="nav-links-modern">
+        <a href="#products">Products</a>
+        <a href="#why-us">Our Story</a>
+        <a href="#benefits">Benefits</a>
+      </nav>
 
-        <ul class="nav-right">
-          <li>
-            <a href="#products" class="btn-shop-header">SHOP NOW</a>
-          </li>
-        </ul>
+      <div class="nav-actions-modern">
+        <a href="#products" class="btn-shop-header-modern">SHOP NOW</a>
+        <button class="hamburger-modern" aria-label="Open Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-
-    <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#why-us" class="mobile-link">Our Story</a>
-      <a href="#benefits" class="mobile-link">Benefits</a>
-      <a href="#contact" class="mobile-link">Contact</a>
-      <a href="https://wa.me/919999999999" class="mobile-link whatsapp-mobile" target="_blank">🟢 Order on WhatsApp</a>
     </div>
   </header>
+
+  <!-- ── MOBILE MENU OVERLAY ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <button class="menu-close">&times;</button>
+      <nav class="mobile-nav">
+        <a href="#products" class="mobile-link">Products</a>
+        <a href="#why-us" class="mobile-link">Our Story</a>
+        <a href="#benefits" class="mobile-link">Benefits</a>
+        <a href="#dairy" class="mobile-link">Our Dairy</a>
+        <a href="#footer" class="mobile-link">Contact</a>
+      </nav>
+      <div class="mobile-menu-footer">
+        <a href="https://wa.me/919999999999" class="btn-whatsapp-full">WhatsApp Order</a>
+      </div>
+    </div>
+  </div>
 
   <!-- ════════════════ HERO SECTION ════════════════ -->
   <section class="hero" id="top">
@@ -125,7 +143,6 @@
   <section class="products-section reveal" id="products">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">OUR COLLECTION</span>
         <h2 class="section-title italic">Choose Your Size</h2>
         <p class="section-subtitle">The same pure, golden goodness — in every size that fits your kitchen.</p>
       </div>
@@ -138,33 +155,75 @@
           <button class="tab-btn" data-size="200ml">200 ml</button>
           <button class="tab-btn" data-size="500ml">500 ml</button>
           <button class="tab-btn" data-size="1L">1 L Tin</button>
-          <button class="tab-btn" data-size="2L">2 L</button>
-          <button class="tab-btn" data-size="15L">15 L</button>
+          <button class="tab-btn" data-size="2L">2 L Tin</button>
+          <button class="tab-btn" data-size="15L">15 L Tin</button>
         </div>
       </div>
 
       <!-- Interactive Card -->
       <div class="product-interactive-card">
+
+        <!-- LEFT: Jar Illustration -->
         <div class="card-visual">
           <div class="product-image-wrap">
-            <img src="images/ghee_jar.png" alt="Premium SKS Ghee Jar" class="product-main-img" id="product-main-img" />
+            <div class="jar-illustration" id="jar-illustration">
+              <!-- SVG Ghee Jar -->
+              <svg viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" class="jar-svg">
+                <!-- Jar body shadow -->
+                <ellipse cx="110" cy="280" rx="65" ry="10" fill="rgba(92,61,30,0.10)" />
+                <!-- Jar body -->
+                <rect x="40" y="110" width="140" height="155" rx="18" fill="#FFF8EC" stroke="#E8C97A"
+                  stroke-width="2" />
+                <!-- Ghee fill -->
+                <rect x="42" y="150" width="136" height="113" rx="14" fill="#F5C842" opacity="0.85" />
+                <!-- Ghee surface sheen -->
+                <ellipse cx="110" cy="152" rx="66" ry="10" fill="#F0B800" opacity="0.6" />
+                <!-- Jar glass highlight left -->
+                <rect x="50" y="120" width="12" height="120" rx="6" fill="rgba(255,255,255,0.45)" />
+                <!-- Jar glass highlight right -->
+                <rect x="158" y="130" width="6" height="80" rx="3" fill="rgba(255,255,255,0.25)" />
+                <!-- Lid base -->
+                <rect x="35" y="92" width="150" height="24" rx="10" fill="#C8860A" />
+                <!-- Lid top -->
+                <rect x="45" y="80" width="130" height="20" rx="10" fill="#E8A020" />
+                <!-- Lid shine -->
+                <rect x="55" y="83" width="40" height="7" rx="4" fill="rgba(255,255,255,0.35)" />
+                <!-- Label background -->
+                <rect x="52" y="168" width="116" height="72" rx="8" fill="#FFFDF7" stroke="#E8D8B0" stroke-width="1" />
+                <!-- Label top stripe -->
+                <rect x="52" y="168" width="116" height="10" rx="4" fill="#C8860A" />
+                <!-- Brand name -->
+                <text x="110" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700"
+                  fill="#2C1A0E" letter-spacing="1">SKS GHEE</text>
+                <!-- Sub label -->
+                <text x="110" y="216" text-anchor="middle" font-family="Arial, sans-serif" font-size="7.5"
+                  fill="#5C3D1E" letter-spacing="0.5">Pure Desi A2 Ghee</text>
+                <!-- Size badge circle -->
+                <circle cx="110" cy="237" r="10" fill="#FFF0CC" stroke="#C8860A" stroke-width="1" />
+                <text x="110" y="241" text-anchor="middle" font-family="Arial, sans-serif" font-size="7"
+                  font-weight="700" fill="#C8860A" id="jar-size-label">50ml</text>
+              </svg>
+            </div>
+            <!-- Floating trust badge -->
           </div>
         </div>
-        
+
+        <!-- RIGHT: Product Details -->
         <div class="card-details">
-          <div class="detail-badge" id="product-badge">50 ML — Trial Size</div>
+          <div class="detail-badge" id="product-badge">50 ML — TRIAL SIZE</div>
           <h3 class="detail-title">SKS Desi Cow A2 Ghee</h3>
-          <p class="detail-desc" id="product-desc">Perfect for first-time buyers or gifting. Experience the purity before committing to a larger jar.</p>
-          
+          <p class="detail-desc" id="product-desc">Perfect for first-time buyers or gifting. Experience the purity
+            before committing to a larger jar.</p>
+
           <div class="detail-price-row">
             <span class="price-currency">₹</span>
             <span class="price-amount" id="product-price">80</span>
             <span class="price-slash">/</span>
             <span class="price-unit" id="product-unit">50ml</span>
           </div>
-          
+
           <p class="detail-best-for" id="product-best-for">Best for: Trial / Travel / Gifting</p>
-          
+
           <a href="https://wa.me/919999999999" class="btn-whatsapp-full" id="whatsapp-product-btn">
             <span class="check-icon">✓</span>
             ORDER ON WHATSAPP
@@ -172,7 +231,8 @@
         </div>
       </div>
 
-      <p class="bulk-footer-note">Need 15L or custom bulk orders? <a href="mailto:hello@sksghee.com">Contact us directly →</a></p>
+      <p class="bulk-footer-note">Need 15L or custom bulk orders? <a href="mailto:hello@sksghee.com">Contact us directly
+          →</a></p>
     </div>
   </section>
   <section class="why-us" id="why-us">
@@ -180,25 +240,26 @@
     <div class="container">
       <div class="story-floating-card reveal">
         <div class="story-card-content">
-          <span class="section-eyebrow">Our Heritage</span>
           <h2 class="section-title italic">25 Years of Uncompromising Purity</h2>
           <div class="story-divider"></div>
-          <p class="story-lead">The heart of an Indian kitchen beats in the warm, nutty aroma of pure ghee—the spark of every recipe and the crowning touch on your plate.</p>
+          <p class="story-lead">The heart of an Indian kitchen beats in the warm, nutty aroma of pure ghee—the spark of
+            every recipe and the crowning touch on your plate.</p>
           <div class="story-body">
-            <p>At SKS GHEE, our signature <em>danedar</em> texture is a testament to absolute purity and heritage. Patiently crafted using time-honoured traditions, we preserve its rich golden hue, vital nutrients, and authentic homemade taste.</p>
-            <p>Whether gently folded into festive sweets, poured over steaming rice, or offered up in sacred rituals, SKS GHEE roots every single moment in traditional excellence.</p>
+            <p>At SKS GHEE, our signature <em>danedar</em> texture is a testament to absolute purity and heritage.
+              Patiently crafted using time-honoured traditions, we preserve its rich golden hue, vital nutrients, and
+              authentic homemade taste.</p>
+            <p>Whether gently folded into festive sweets, poured over steaming rice, or offered up in sacred rituals,
+              SKS GHEE roots every single moment in traditional excellence.</p>
           </div>
-          
+
           <div class="story-footer">
             <div class="story-footer-item">
-              <span class="footer-icon">🐄</span>
               <div>
                 <strong>A2 Gir Cows</strong>
                 <span>Pasture-raised with care</span>
               </div>
             </div>
             <div class="story-footer-item">
-              <span class="footer-icon">🏺</span>
               <div>
                 <strong>Ancient Bilona</strong>
                 <span>Hand-churned tradition</span>
@@ -257,60 +318,110 @@
 
 
 
-  <!-- ════════════════ TESTIMONIALS ════════════════ -->
-  <section class="testimonials" id="testimonials">
-    <div class="container reveal-stagger">
-      <div class="section-header">
-        <span class="section-eyebrow">Trust & Love</span>
-        <h2 class="section-title italic">What Our families say</h2>
-        <p class="section-subtitle">Real stories from people who prioritize absolute purity for their homes.</p>
+  <!-- ════════════════ TESTIMONIALS REDESIGN ════════════════ -->
+  <section class="testimonials-new" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <h2 class="testimonials-title-geo">What our <span class="italic-gold">families</span> say</h2>
+        <p class="testimonials-subtitle">Real stories from people who prioritize absolute purity for their homes.</p>
       </div>
-      
-      <div class="testimonials-grid">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card">
-          <div class="quote-icon">“</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"The aroma when you open the jar is just divine. This is exactly how ghee smelled in my grandmother's kitchen. Pure, golden and absolutely delicious!"</p>
-          <div class="customer-footer">
-            <div class="customer-avatar">P</div>
-            <div class="customer-meta">
+
+      <!-- Trust Summary Bar -->
+      <div class="trust-summary-bar">
+        <div class="trust-item">
+          <div class="star-rating-main">
+            <div class="stars-row">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star partial">★</span>
+            </div>
+            <div class="rating-text">
+              <strong>4.6 / 5</strong>
+              <span>Average rating</span>
+            </div>
+          </div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item text-center">
+          <strong>10,000+</strong>
+          <span>Happy families</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item text-center">
+          <strong>98%</strong>
+          <span>Repeat customers</span>
+        </div>
+      </div>
+
+      <!-- Review Cards Grid -->
+      <div class="reviews-grid-new">
+        <!-- Review 1: Priya Sharma -->
+        <div class="review-card-modern">
+          <div class="card-top-flex">
+            <div class="card-stars">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star empty">★</span>
+            </div>
+            <span class="decor-quote">"</span>
+          </div>
+          <p class="review-quote-geo">The aroma when you open the jar is just divine. This is exactly how ghee smelled
+            in my grandmother's kitchen. Pure, golden and absolutely delicious.</p>
+          <div class="review-card-footer">
+            <div class="avatar-circle">P</div>
+            <div class="reviewer-meta">
               <strong>Priya Sharma</strong>
-              <div class="verified-tag">
-                <span class="check-icon">✓</span> Verified Buyer
-              </div>
+              <span>Chennai, Tamil Nadu</span>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card featured">
-          <div class="quote-icon">“</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"I've tried many ghee brands but SKS GHEE is on another level. You can taste the difference immediately — rich, nutty, and authentically pure. Worth every rupee."</p>
-          <div class="customer-footer">
-            <div class="customer-avatar">R</div>
-            <div class="customer-meta">
+        <!-- Review 2: Rajesh Nair (FEATURED) -->
+        <div class="review-card-modern featured">
+          <div class="card-top-flex">
+            <div class="card-stars">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+            </div>
+            <span class="decor-quote">"</span>
+          </div>
+          <p class="review-quote-geo">I've tried many ghee brands but SKS Ghee is on another level. You can taste the
+            difference immediately — rich, nutty, and authentically pure. Worth every rupee.</p>
+          <div class="review-card-footer">
+            <div class="avatar-circle">R</div>
+            <div class="reviewer-meta">
               <strong>Rajesh Nair</strong>
-              <div class="verified-tag">
-                <span class="check-icon">✓</span> Verified Buyer
-              </div>
+              <span>Bengaluru, Karnataka</span>
             </div>
           </div>
         </div>
 
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card">
-          <div class="quote-icon">“</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"My kids love this ghee on their chapati. As a mother, I feel happy knowing they're eating something 100% natural. Ordering every month now!"</p>
-          <div class="customer-footer">
-            <div class="customer-avatar">A</div>
-            <div class="customer-meta">
+        <!-- Review 3: Anita Verma -->
+        <div class="review-card-modern">
+          <div class="card-top-flex">
+            <div class="card-stars">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star empty">★</span>
+              <span class="star empty">★</span>
+            </div>
+            <span class="decor-quote">"</span>
+          </div>
+          <p class="review-quote-geo">My kids love this ghee on their chapati. As a mother, I feel happy knowing they're
+            eating something 100% natural. We've been ordering every month now.</p>
+          <div class="review-card-footer">
+            <div class="avatar-circle">A</div>
+            <div class="reviewer-meta">
               <strong>Anita Verma</strong>
-              <div class="verified-tag">
-                <span class="check-icon">✓</span> Verified Buyer
-              </div>
+              <span>Dindigul, Tamil Nadu</span>
             </div>
           </div>
         </div>
@@ -325,33 +436,26 @@
       <div class="cta-card">
         <div class="cta-grid">
           <div class="cta-info">
-            <span class="section-eyebrow gold">Direct From Farm</span>
             <h2 class="cta-title">Ready to Experience Absolute Purity?</h2>
-            <p class="cta-desc">Join thousands of families who have switched to SKS GHEE. Experience the authentic taste of tradition delivered straight to your doorstep.</p>
-            
-            <div class="trust-pill-container">
-              <div class="trust-pill">
-                <span class="pill-icon">📦</span>
-                <span>Ships Pan India</span>
-              </div>
-              <div class="trust-pill">
-                <span class="pill-icon">🛡️</span>
-                <span>Quality Guaranteed</span>
-              </div>
-            </div>
+            <p class="cta-desc">Join thousands of families who have switched to SKS GHEE. Experience the authentic taste
+              of tradition delivered straight to your doorstep.</p>
           </div>
 
           <div class="cta-buttons">
             <div class="cta-action-wrap">
               <p class="cta-action-label">Quick Order via WhatsApp</p>
-              <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20order%20SKS%20GHEE" class="btn-whatsapp-elite" target="_blank" rel="noopener">
+              <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20order%20SKS%20GHEE"
+                class="btn-whatsapp-elite" target="_blank" rel="noopener">
                 <span class="wa-icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
                 </span>
                 <span>Send WhatsApp Order</span>
               </a>
             </div>
-            
+
             <div class="cta-secondary-links">
               <a href="mailto:hello@sksghee.com">hello@sksghee.com</a>
               <span class="cta-sep">•</span>
@@ -365,67 +469,100 @@
 
 
 
-  <!-- ════════════════ FOOTER HERITAGE SCENE ════════════════ -->
-  <section class="footer-heritage">
-    <div class="footer-heritage-inner">
-      <img src="images/footer_farm_illustration_v2.png" alt="SKS Ghee Village Heritage" class="footer-heritage-img" />
-    </div>
-  </section>
 
   <!-- ════════════════ FOOTER ════════════════ -->
-  <footer class="footer" id="footer">
+
+  <!-- ════════════════ FOOTER REDESIGN ════════════════ -->
+  <footer class="footer-new" id="footer">
+    <div class="footer-divider-gold"></div>
+
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img src="images/logo.png" alt="SKS Ghee Logo" class="footer-logo-img" style="height: 40px; margin-bottom: 15px;" />
-            <div>
-              <span class="brand-name" style="font-family: 'Playfair Display', serif;">SKS GHEE</span>
-              <span class="brand-tagline">Pure &amp; Traditional</span>
-            </div>
-          </div>
-          <p class="footer-desc">Pure, natural desi cow ghee made with the ancient Bilona method. No additives, no
-            compromise.</p>
-          <div class="social-links">
-            <a href="#" class="social-link" id="footer-instagram" aria-label="Instagram">
-              <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
-                <path
+      <div class="footer-grid-new">
+        <!-- Brand Column -->
+        <div class="footer-col-brand">
+          <h2 class="footer-logo-text">SKS GHEE</h2>
+          <p class="footer-tagline-new">Pure A2 Desi Cow Ghee made with the traditional Bilona method. Crafted with
+            love, rooted in 25 years of heritage.</p>
+          <div class="social-icons-circular">
+            <a href="#" class="social-btn-circle" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path fill="currentColor"
                   d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
             </a>
-            <a href="#" class="social-link" id="footer-facebook" aria-label="Facebook">
-              <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-            </a>
           </div>
         </div>
 
-
-
-        <div class="footer-col">
-          <h4>Information</h4>
-          <ul>
+        <!-- Quick Links Column -->
+        <div class="footer-col-new">
+          <h4 class="footer-heading-geo">QUICK LINKS</h4>
+          <ul class="footer-links-new">
+            <li><a href="#products">Products</a></li>
             <li><a href="#why-us">Our Story</a></li>
-            <li><a href="#benefits">Benefits of Ghee</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#benefits">Benefits</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <ul>
-            <li><a href="https://wa.me/919999999999" target="_blank" rel="noopener">💬 WhatsApp Order</a></li>
-            <li><a href="mailto:hello@sksghee.com">📧 hello@sksghee.com</a></li>
-            <li><span>📍 Ships Pan India</span></li>
+        <!-- Information Column -->
+        <div class="footer-col-new">
+          <h4 class="footer-heading-geo">INFORMATION</h4>
+          <ul class="footer-links-new">
+            <li><a href="policies.html#privacy">Privacy Policy</a></li>
+            <li><a href="policies.html#terms">Terms of Service</a></li>
+            <li><a href="policies.html#shipping">Shipping Policy</a></li>
+            <li><a href="policies.html#refund">Refund Policy</a></li>
+            <li><a href="policies.html#faq">FAQ</a></li>
           </ul>
         </div>
-      </div>
 
-      <div class="footer-bottom">
-        <p>© 2025 SKS GHEE. All rights reserved. | Made with ❤️ in India</p>
+        <!-- Contact Column -->
+        <div class="footer-col-new">
+          <h4 class="footer-heading-geo">CONTACT US</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              hello@sksghee.com
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              +91 98765 43210
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Oddanchatram, Tamil Nadu, India
+            </li>
+        </div>
       </div>
+    </div> <!-- .container ends here -->
+
+    <div class="footer-bottom-new">
+      <div class="container footer-bottom-flex">
+        <p class="copyright-muted">© 2025 <span class="gold-text">SKS Ghee</span>. All rights reserved. Pure since
+          1999.</p>
+        <div class="footer-bottom-links">
+          <a href="policies.html#privacy">Privacy</a>
+          <a href="policies.html#terms">Terms</a>
+          <a href="policies.html#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative Leaf Background -->
+    <div class="footer-decorative-leaf">
+      <svg width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"
+        stroke-opacity="0.1">
+        <path d="M12 2L10 6L6 8L10 10L12 14L14 10L18 8L14 6L12 2Z" />
+        <path d="M12 14L10 18L6 20L10 22L12 24L14 22L18 20L14 18L12 14Z" opacity="0.5" />
+      </svg>
     </div>
   </footer>
 

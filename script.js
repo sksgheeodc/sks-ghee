@@ -12,21 +12,42 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
 
   // ── Hamburger / Mobile menu ───────────────────────────────
-  const hamburger = document.getElementById('hamburger');
+  const hamburger = document.querySelector('.hamburger-modern');
   const mobileMenu = document.getElementById('mobileMenu');
+  const menuClose = document.querySelector('.menu-close');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    const isOpen = mobileMenu.classList.contains('open');
-    hamburger.setAttribute('aria-expanded', isOpen);
-  });
+  if (hamburger && mobileMenu) {
+    const toggleMenu = (show) => {
+      mobileMenu.classList.toggle('open', show);
+      document.body.style.overflow = show ? 'hidden' : ''; // Prevent scroll when menu open
+      hamburger.setAttribute('aria-expanded', show);
+    };
 
-  // Close mobile menu when a link is clicked
-  document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
+    hamburger.addEventListener('click', () => toggleMenu(true));
+    if (menuClose) menuClose.addEventListener('click', () => toggleMenu(false));
+
+    // Close menu when a link is clicked
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
     });
-  });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
+  }
+
+  // ── Announcement bar close button ─────────────────────────
+  const closeBar = document.querySelector('.close-bar');
+  const announcementStrip = document.querySelector('.announcement-strip');
+  if (closeBar && announcementStrip) {
+    closeBar.addEventListener('click', () => {
+      announcementStrip.style.display = 'none';
+    });
+  }
 
   // ── Smooth scroll for all anchor links ───────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -42,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── Scroll reveal animation ───────────────────────────────
-  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger, .reveal-left, .reveal-right');
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger, .reveal-left, .reveal-right, .reveal-bottom');
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -162,52 +183,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Interactive Product Tabs ─────────────────────────────
   const productData = {
-    '50ml': { 
-      badge: '50 ML — Trial Size', price: '80', unit: '50ml', 
-      desc: 'Perfect for first-time buyers or gifting. Experience the purity before committing to a larger jar.', 
-      bestFor: 'Best for: Trial / Travel / Gifting', labelSize: '50 ML'
+    '50ml': {
+      badge: '50 ML — TRIAL SIZE',
+      price: '80',
+      unit: '/ 50 ml',
+      desc: 'Perfect for first-time buyers or gifting. Experience the purity before committing to a larger jar.',
+      bestFor: 'Best for: Trial / Travel / Gifting',
+      features: ['Hand-churned using Bilona method', 'Zero preservatives or additives', 'Rich in A2 protein & vitamins'],
+      jarLabel: '50ml'
     },
-    '50ml': { 
-      badge: '50 ML — Trial Size', price: '80', unit: '50ml', 
-      desc: 'Perfect for first-time buyers or gifting. Experience the purity before committing to a larger jar.', 
-      bestFor: 'Best for: Trial / Travel / Gifting', labelSize: '50 ML',
-      img: 'images/ghee_jar.png'
+    '100ml': {
+      badge: '100 ML — SMALL JAR',
+      price: '150',
+      unit: '/ 100 ml',
+      desc: 'Ideal for testing our premium quality. A compact jar for your daily toast, coffee, or dal.',
+      bestFor: 'Best for: Individual / Gifting / Travel',
+      features: ['Bilona hand-churned tradition', 'Glass jar with gold lid', 'No artificial colours or flavours'],
+      jarLabel: '100ml'
     },
-    '100ml': { 
-      badge: '100 ML — Small Jar', price: '150', unit: '100ml', 
-      desc: 'Ideal for testing our premium quality. A compact jar for your daily toast or coffee.', 
-      bestFor: 'Best for: Individual / Gifting / Travel', labelSize: '100 ML',
-      img: 'images/ghee_jar.png'
+    '200ml': {
+      badge: '200 ML — DAILY USE',
+      price: '280',
+      unit: '/ 200 ml',
+      desc: 'Great for small kitchens and fresh consumption. Packed with rich nutrients and authentic aroma.',
+      bestFor: 'Best for: Couples / Small Kitchens',
+      features: ['Fresh batch, slow-cooked', 'Rich danedar texture', 'Perfect for festive sweets'],
+      jarLabel: '200ml'
     },
-    '200ml': { 
-      badge: '200 ML — Daily Use', price: '280', unit: '200ml', 
-      desc: 'Great for small kitchens and fresh consumption. Packed with rich nutrients and aroma.', 
-      bestFor: 'Best for: Couples / Small Kitchens', labelSize: '200 ML',
-      img: 'images/ghee_jar.png'
+    '500ml': {
+      badge: '500 ML — BEST SELLER',
+      price: '650',
+      unit: '/ 500 ml',
+      desc: 'The most popular choice. Ideal for everyday Indian cooking, rituals, and festive sweets.',
+      bestFor: 'Best for: Regular Families / Gifting',
+      features: ['Most popular size', 'Traditional Bilona process', 'Sealed for freshness'],
+      jarLabel: '500ml'
     },
-    '500ml': { 
-      badge: '500 ML — Best Seller', price: '520', unit: '500ml', 
-      desc: 'The most popular choice. Ideal for everyday Indian cooking, rituals, and festive sweets.', 
-      bestFor: 'Best for: Regular Families / Gifting', labelSize: '500 ML',
-      img: 'images/ghee_jar.png'
+    '1L': {
+      badge: '1 L TIN — FAMILY PACK',
+      price: '1,200',
+      unit: '/ 1 Litre Tin',
+      desc: 'Maximum value for daily usage. Our signature A2 Ghee in a convenient family-sized tin.',
+      bestFor: 'Best for: Large Families / Bulk Usage',
+      features: ['Premium tin packaging', 'Long shelf life', 'Best value per ml'],
+      jarLabel: '1L'
     },
-    '1L': { 
-      badge: '1 L — Family Pack', price: '980', unit: '1 L', 
-      desc: 'Maximum value for daily usage. Our signature A2 Ghee in a convenient family-sized tin.', 
-      bestFor: 'Best for: Large Families / Bulk Usage', labelSize: '1 LITER',
-      img: 'images/ghee_1l.png'
+    '2L': {
+      badge: '2 L — STOCK UP',
+      price: '2,200',
+      unit: '/ 2 Litres',
+      desc: 'Ensure your kitchen never runs out of purity. Authentic taste for a full month of healthy meals.',
+      bestFor: 'Best for: Monthly Kitchen Stock',
+      features: ['Bulk saving on premium ghee', 'Airtight tin sealing', 'Same pure Bilona quality'],
+      jarLabel: '2L'
     },
-    '2L': { 
-      badge: '2 L — Stock Up', price: '1850', unit: '2 L', 
-      desc: 'Ensure your kitchen never runs out of purity. Authentic taste for a month of healthy meals.', 
-      bestFor: 'Best for: Monthly Kitchen Stock', labelSize: '2 LITER',
-      img: 'images/ghee_1l.png'
-    },
-    '15L': { 
-      badge: '15 L — Bulk Tin', price: '12500', unit: '15 L', 
-      desc: 'Bulk sourcing for catering or large families. Pristine quality in a traditional 15L tin format.', 
-      bestFor: 'Best for: Catering / Industrial / Gifts', labelSize: '15 L',
-      img: 'images/ghee_15l.png'
+    '15L': {
+      badge: '15 L — BULK TIN',
+      price: '15,000',
+      unit: '/ 15 Litres',
+      desc: 'Bulk sourcing for catering, religious purposes, or large families. Pristine quality in traditional 15L tin.',
+      bestFor: 'Best for: Catering / Industrial / Rituals',
+      features: ['Direct from dairy — lowest price', 'Traditional large tin format', 'Custom orders available'],
+      jarLabel: '15L'
     }
   };
 
@@ -217,54 +254,55 @@ document.addEventListener('DOMContentLoaded', () => {
   const priceEl = document.getElementById('product-price');
   const unitEl = document.getElementById('product-unit');
   const bestForEl = document.getElementById('product-best-for');
-  const labelSizeEl = document.getElementById('label-size-display');
+  const featuresEl = document.getElementById('product-features');
   const waLink = document.getElementById('whatsapp-product-btn');
-  const mainImgEl = document.getElementById('product-main-img');
+  const jarSizeLabel = document.getElementById('jar-size-label');
+
+  function updateProduct(size) {
+    const data = productData[size];
+    if (!data) return;
+
+    // Fade out
+    const els = [badgeEl, descEl, priceEl, unitEl, bestForEl, featuresEl];
+    els.forEach(el => { if (el) { el.style.opacity = '0'; el.style.transform = 'translateY(8px)'; } });
+
+    setTimeout(() => {
+      if (badgeEl) badgeEl.textContent = data.badge;
+      if (descEl) descEl.textContent = data.desc;
+      if (priceEl) priceEl.textContent = data.price;
+      if (unitEl) unitEl.textContent = data.unit;
+      if (bestForEl) bestForEl.textContent = data.bestFor;
+      if (jarSizeLabel) jarSizeLabel.textContent = data.jarLabel;
+
+      // Update feature bullets
+      if (featuresEl) {
+        featuresEl.innerHTML = data.features
+          .map(f => `<li>${f}</li>`)
+          .join('');
+      }
+
+      // Pre-filled WhatsApp message
+      if (waLink) {
+        const msg = encodeURIComponent(`Hi, I'd like to order SKS Desi Cow A2 Ghee — ${size} (₹${data.price})`);
+        waLink.href = `https://wa.me/919999999999?text=${msg}`;
+      }
+
+      // Fade in
+      els.forEach(el => {
+        if (el) {
+          el.style.transition = 'all 0.35s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }
+      });
+    }, 250);
+  }
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active state
       tabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      // Get data
-      const size = btn.getAttribute('data-size');
-      const data = productData[size];
-
-      // Update content with fade animation
-      const elementsToUpdate = [badgeEl, descEl, priceEl, unitEl, bestForEl];
-      elementsToUpdate.forEach(el => {
-        if (el) {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(10px)';
-        }
-      });
-
-      // Special handling for image
-      if (mainImgEl) mainImgEl.classList.add('switching');
-
-      setTimeout(() => {
-        if (badgeEl) badgeEl.textContent = data.badge;
-        if (descEl) descEl.textContent = data.desc;
-        if (priceEl) priceEl.textContent = data.price;
-        if (unitEl) unitEl.textContent = data.unit;
-        if (bestForEl) bestForEl.textContent = data.bestFor;
-        if (mainImgEl && data.img) mainImgEl.src = data.img;
-        
-        if (waLink) {
-          waLink.href = `https://wa.me/919999999999?text=Hi, I want to order SKS GHEE ${size}`;
-        }
-
-        elementsToUpdate.forEach(el => {
-          if (el) {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-            el.style.transition = 'all 0.3s ease';
-          }
-        });
-
-        if (mainImgEl) mainImgEl.classList.remove('switching');
-      }, 300);
+      updateProduct(btn.getAttribute('data-size'));
     });
   });
 
