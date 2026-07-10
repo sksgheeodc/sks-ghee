@@ -183,68 +183,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Interactive Product Tabs ─────────────────────────────
   const productData = {
-    '50ml': {
-      badge: '50 ML — TRIAL SIZE',
-      price: '80',
-      unit: '/ 50 ml',
-      desc: 'Perfect for first-time buyers or gifting. Experience the purity before committing to a larger jar.',
-      bestFor: 'Best for: Trial / Travel / Gifting',
-      features: ['Hand-churned using Bilona method', 'Zero preservatives or additives', 'Rich in A2 protein & vitamins'],
-      jarLabel: '50ml'
-    },
-    '100ml': {
-      badge: '100 ML — SMALL JAR',
-      price: '150',
-      unit: '/ 100 ml',
-      desc: 'Ideal for testing our premium quality. A compact jar for your daily toast, coffee, or dal.',
-      bestFor: 'Best for: Individual / Gifting / Travel',
-      features: ['Bilona hand-churned tradition', 'Glass jar with gold lid', 'No artificial colours or flavours'],
-      jarLabel: '100ml'
-    },
     '200ml': {
       badge: '200 ML — DAILY USE',
       price: '280',
-      unit: '/ 200 ml',
+      unit: '200 ml',
       desc: 'Great for small kitchens and fresh consumption. Packed with rich nutrients and authentic aroma.',
-      bestFor: 'Best for: Couples / Small Kitchens',
       features: ['Fresh batch, slow-cooked', 'Rich danedar texture', 'Perfect for festive sweets'],
-      jarLabel: '200ml'
+      image: 'images/200ML.png',
+      scale: 1.5
     },
     '500ml': {
       badge: '500 ML — BEST SELLER',
       price: '650',
-      unit: '/ 500 ml',
+      unit: '500 ml',
       desc: 'The most popular choice. Ideal for everyday Indian cooking, rituals, and festive sweets.',
-      bestFor: 'Best for: Regular Families / Gifting',
       features: ['Most popular size', 'Traditional Bilona process', 'Sealed for freshness'],
-      jarLabel: '500ml'
+      image: 'images/500ML.png',
+      scale: 1.1
     },
-    '1L': {
-      badge: '1 L TIN — FAMILY PACK',
+    '1L_bottle': {
+      badge: '1 LITRE BOTTLE — FAMILY PACK',
       price: '1,200',
-      unit: '/ 1 Litre Tin',
-      desc: 'Maximum value for daily usage. Our signature A2 Ghee in a convenient family-sized tin.',
-      bestFor: 'Best for: Large Families / Bulk Usage',
-      features: ['Premium tin packaging', 'Long shelf life', 'Best value per ml'],
-      jarLabel: '1L'
+      unit: '1 Litre',
+      desc: 'Maximum value for daily usage. Our signature A2 Ghee in a convenient family-sized bottle.',
+      features: ['Premium packaging', 'Long shelf life', 'Best value per ml'],
+      image: 'images/1L.png',
+      scale: 1.2
     },
     '2L': {
-      badge: '2 L — STOCK UP',
+      badge: '2 L TIN — STOCK UP',
       price: '2,200',
-      unit: '/ 2 Litres',
+      unit: '2 Litre',
       desc: 'Ensure your kitchen never runs out of purity. Authentic taste for a full month of healthy meals.',
-      bestFor: 'Best for: Monthly Kitchen Stock',
       features: ['Bulk saving on premium ghee', 'Airtight tin sealing', 'Same pure Bilona quality'],
-      jarLabel: '2L'
+      image: 'images/2L.png',
+      scale: 1.3
     },
-    '15L': {
-      badge: '15 L — BULK TIN',
-      price: '15,000',
-      unit: '/ 15 Litres',
-      desc: 'Bulk sourcing for catering, religious purposes, or large families. Pristine quality in traditional 15L tin.',
-      bestFor: 'Best for: Catering / Industrial / Rituals',
-      features: ['Direct from dairy — lowest price', 'Traditional large tin format', 'Custom orders available'],
-      jarLabel: '15L'
+    '5L': {
+      badge: '5 L TIN — BULK PACK',
+      price: '5,000',
+      unit: '5 Litres',
+      desc: 'Bulk sourcing for large families. Pristine quality in a convenient 5L tin.',
+      features: ['Direct from dairy', 'Convenient tin format', 'Custom orders available'],
+      image: 'images/5L TIN.png',
+      scale: 1.4
     }
   };
 
@@ -253,17 +235,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const descEl = document.getElementById('product-desc');
   const priceEl = document.getElementById('product-price');
   const unitEl = document.getElementById('product-unit');
-  const bestForEl = document.getElementById('product-best-for');
   const featuresEl = document.getElementById('product-features');
   const waLink = document.getElementById('whatsapp-product-btn');
-  const jarSizeLabel = document.getElementById('jar-size-label');
+  const productImgEl = document.getElementById('product-img');
 
   function updateProduct(size) {
     const data = productData[size];
     if (!data) return;
 
     // Fade out
-    const els = [badgeEl, descEl, priceEl, unitEl, bestForEl, featuresEl];
+    const els = [badgeEl, descEl, priceEl, unitEl, featuresEl];
     els.forEach(el => { if (el) { el.style.opacity = '0'; el.style.transform = 'translateY(8px)'; } });
 
     setTimeout(() => {
@@ -271,8 +252,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (descEl) descEl.textContent = data.desc;
       if (priceEl) priceEl.textContent = data.price;
       if (unitEl) unitEl.textContent = data.unit;
-      if (bestForEl) bestForEl.textContent = data.bestFor;
-      if (jarSizeLabel) jarSizeLabel.textContent = data.jarLabel;
+      if (productImgEl && data.image) {
+        productImgEl.src = data.image;
+        productImgEl.style.transform = `scale(${data.scale || 1})`;
+      }
 
       // Update feature bullets
       if (featuresEl) {

@@ -13,16 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    @media (max-width: 991px) {
 
-      .nav-desktop-links,
-      .nav-center,
-      .nav-right {
-        display: none !important;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -41,13 +32,9 @@
   <header class="navbar-modern" id="mainHeader">
     <div class="container nav-flex">
       <div class="brand-modern">
-        <a href="#top" class="logo-box">
-          <div class="logo-circle"></div>
+        <a href="#top" class="logo-box" style="display: block; width: 120px; height: 60px; overflow: hidden; position: relative;">
+          <img src="images/LOGO.png" alt="SKS Ghee Logo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 220px; width: auto; max-width: none;" />
         </a>
-        <div class="brand-info">
-          <span class="brand-top">SKS</span>
-          <span class="brand-bottom">GHEE</span>
-        </div>
       </div>
 
       <nav class="nav-links-modern">
@@ -149,13 +136,11 @@
       <!-- Size Tabs -->
       <div class="size-tabs-container">
         <div class="size-tabs">
-          <button class="tab-btn active" data-size="50ml">50 ml</button>
-          <button class="tab-btn" data-size="100ml">100 ml</button>
-          <button class="tab-btn" data-size="200ml">200 ml</button>
+          <button class="tab-btn active" data-size="200ml">200 ml</button>
           <button class="tab-btn" data-size="500ml">500 ml</button>
-          <button class="tab-btn" data-size="1L">1 L Tin</button>
+          <button class="tab-btn" data-size="1L_bottle">1 Litre</button>
           <button class="tab-btn" data-size="2L">2 L Tin</button>
-          <button class="tab-btn" data-size="15L">15 L Tin</button>
+          <button class="tab-btn" data-size="5L">5 L Tin</button>
         </div>
       </div>
 
@@ -165,43 +150,8 @@
         <!-- LEFT: Jar Illustration -->
         <div class="card-visual">
           <div class="product-image-wrap">
-            <div class="jar-illustration" id="jar-illustration">
-              <!-- SVG Ghee Jar -->
-              <svg viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" class="jar-svg">
-                <!-- Jar body shadow -->
-                <ellipse cx="110" cy="280" rx="65" ry="10" fill="rgba(92,61,30,0.10)" />
-                <!-- Jar body -->
-                <rect x="40" y="110" width="140" height="155" rx="18" fill="#FFF8EC" stroke="#E8C97A"
-                  stroke-width="2" />
-                <!-- Ghee fill -->
-                <rect x="42" y="150" width="136" height="113" rx="14" fill="#F5C842" opacity="0.85" />
-                <!-- Ghee surface sheen -->
-                <ellipse cx="110" cy="152" rx="66" ry="10" fill="#F0B800" opacity="0.6" />
-                <!-- Jar glass highlight left -->
-                <rect x="50" y="120" width="12" height="120" rx="6" fill="rgba(255,255,255,0.45)" />
-                <!-- Jar glass highlight right -->
-                <rect x="158" y="130" width="6" height="80" rx="3" fill="rgba(255,255,255,0.25)" />
-                <!-- Lid base -->
-                <rect x="35" y="92" width="150" height="24" rx="10" fill="#C8860A" />
-                <!-- Lid top -->
-                <rect x="45" y="80" width="130" height="20" rx="10" fill="#E8A020" />
-                <!-- Lid shine -->
-                <rect x="55" y="83" width="40" height="7" rx="4" fill="rgba(255,255,255,0.35)" />
-                <!-- Label background -->
-                <rect x="52" y="168" width="116" height="72" rx="8" fill="#FFFDF7" stroke="#E8D8B0" stroke-width="1" />
-                <!-- Label top stripe -->
-                <rect x="52" y="168" width="116" height="10" rx="4" fill="#C8860A" />
-                <!-- Brand name -->
-                <text x="110" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700"
-                  fill="#2C1A0E" letter-spacing="1">SKS GHEE</text>
-                <!-- Sub label -->
-                <text x="110" y="216" text-anchor="middle" font-family="Arial, sans-serif" font-size="7.5"
-                  fill="#5C3D1E" letter-spacing="0.5">Pure Desi A2 Ghee</text>
-                <!-- Size badge circle -->
-                <circle cx="110" cy="237" r="10" fill="#FFF0CC" stroke="#C8860A" stroke-width="1" />
-                <text x="110" y="241" text-anchor="middle" font-family="Arial, sans-serif" font-size="7"
-                  font-weight="700" fill="#C8860A" id="jar-size-label">50ml</text>
-              </svg>
+            <div class="jar-illustration" id="jar-illustration" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+              <img id="product-img" src="images/200ML.png" alt="SKS Ghee Product" style="max-width: 100%; max-height: 340px; object-fit: contain; filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.2)); transition: all 0.3s ease; transform: scale(1.5);" />
             </div>
             <!-- Floating trust badge -->
           </div>
@@ -209,19 +159,17 @@
 
         <!-- RIGHT: Product Details -->
         <div class="card-details">
-          <div class="detail-badge" id="product-badge">50 ML — TRIAL SIZE</div>
+          <div class="detail-badge" id="product-badge">200 ML — DAILY USE</div>
           <h3 class="detail-title">SKS Desi Cow A2 Ghee</h3>
-          <p class="detail-desc" id="product-desc">Perfect for first-time buyers or gifting. Experience the purity
-            before committing to a larger jar.</p>
+          <p class="detail-desc" id="product-desc">Great for small kitchens and fresh consumption. Packed with rich nutrients and authentic aroma.</p>
 
           <div class="detail-price-row">
             <span class="price-currency">₹</span>
-            <span class="price-amount" id="product-price">80</span>
+            <span class="price-amount" id="product-price">280</span>
             <span class="price-slash">/</span>
-            <span class="price-unit" id="product-unit">50ml</span>
+            <span class="price-unit" id="product-unit">200 ml</span>
           </div>
 
-          <p class="detail-best-for" id="product-best-for">Best for: Trial / Travel / Gifting</p>
 
           <a href="https://wa.me/919443241308" class="btn-whatsapp-full" id="whatsapp-product-btn">
             <span class="check-icon">✓</span>
@@ -479,7 +427,9 @@
       <div class="footer-grid-new">
         <!-- Brand Column -->
         <div class="footer-col-brand">
-          <h2 class="footer-logo-text">SKS GHEE</h2>
+          <div style="width: 160px; height: 80px; overflow: hidden; position: relative; margin-bottom: 15px;">
+            <img src="images/LOGO.png" alt="SKS Ghee Logo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 280px; width: auto; max-width: none;" />
+          </div>
           <p class="footer-tagline-new">Pure A2 Desi Cow Ghee made with the traditional Bilona method. Crafted with
             love, rooted in 25 years of heritage.</p>
           <div class="social-icons-circular">
