@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (unitEl) unitEl.textContent = data.unit;
       if (productImgEl && data.image) {
         productImgEl.src = data.image;
-        productImgEl.style.transform = `scale(${data.scale || 1})`;
+        productImgEl.style.setProperty('--img-scale', data.scale || 1);
       }
 
       // Update feature bullets

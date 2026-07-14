@@ -2948,4 +2948,59 @@ ul {
   .reveal-right.visible {
     opacity: 1 !important;
   }
+}/* --------------------------------------------
+   GENERAL MOBILE POLISH
+   -------------------------------------------- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 20px 60px;
+    min-height: auto;
+  }
+  .hero-title {
+    font-size: 2.8rem !important;
+  }
+  .story-floating-card {
+    padding: 30px 20px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .stats-container {
+    padding: 30px 16px !important;
+    gap: 20px !important;
+  }
+  .stat-v {
+    font-size: 1.8rem !important;
+  }
+  .product-interactive-card {
+    grid-template-columns: 1fr !important;
+  }
+  .card-visual {
+    padding: 20px !important;
+    border-right: none !important;
+    border-bottom: 1px solid #EDE0C4 !important;
+  }
+  .card-details {
+    padding: 20px !important;
+  }
+}
+/* --------------------------------------------
+   RESPONSIVE PRODUCT IMAGE SCALE
+   -------------------------------------------- */
+#product-img {
+  transform: scale(var(--img-scale, 3.5));
+}
+
+@media (max-width: 768px) {
+  #product-img {
+    transform: scale(calc(var(--img-scale, 3.5) * 0.45));
+  }
+}
+/* --------------------------------------------
+   MOBILE CARD VISUAL HEIGHT FIX
+   -------------------------------------------- */
+@media (max-width: 768px) {
+  .card-visual {
+    min-height: 480px !important;
+  }
 }
