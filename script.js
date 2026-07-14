@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Great for small kitchens and fresh consumption. Packed with rich nutrients and authentic aroma.',
       features: ['Fresh batch, slow-cooked', 'Rich danedar texture', 'Perfect for festive sweets'],
       image: 'images/200ML.png',
-      scale: 1.5
+      scale: 3.5
     },
     '500ml': {
       badge: '500 ML — BEST SELLER',
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'The most popular choice. Ideal for everyday Indian cooking, rituals, and festive sweets.',
       features: ['Most popular size', 'Traditional Bilona process', 'Sealed for freshness'],
       image: 'images/500ML.png',
-      scale: 1.1
+      scale: 3.0
     },
     '1L_bottle': {
       badge: '1 LITRE BOTTLE — FAMILY PACK',
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Maximum value for daily usage. Our signature A2 Ghee in a convenient family-sized bottle.',
       features: ['Premium packaging', 'Long shelf life', 'Best value per ml'],
       image: 'images/1L.png',
-      scale: 1.2
+      scale: 3.1
     },
     '2L': {
       badge: '2 L TIN — STOCK UP',
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Ensure your kitchen never runs out of purity. Authentic taste for a full month of healthy meals.',
       features: ['Bulk saving on premium ghee', 'Airtight tin sealing', 'Same pure Bilona quality'],
       image: 'images/2L.png',
-      scale: 1.3
+      scale: 3.2
     },
     '5L': {
       badge: '5 L TIN — BULK PACK',
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Bulk sourcing for large families. Pristine quality in a convenient 5L tin.',
       features: ['Direct from dairy', 'Convenient tin format', 'Custom orders available'],
       image: 'images/5L TIN.png',
-      scale: 1.4
+      scale: 3.3
     }
   };
 
